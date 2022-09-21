@@ -10,7 +10,9 @@ function App() {
 	const fetchInformation = () => {
 		api.usersAndPosts.then((res) => {
 			if (res.error) {
-				alert(`Error ${res.status}: There's been a problem with your request`);
+				alert(
+					`Error ${res.status}: There has been a problem with your request`
+				);
 				return;
 			}
 
@@ -24,29 +26,8 @@ function App() {
 
 	return (
 		<div className="App">
-			<div
-				style={{
-					marginTop: 50,
-					marginBottom: 50,
-					display: "flex",
-					justifyContent: "center",
-				}}
-			>
-				<div
-					style={{
-						cursor: "pointer",
-						width: 200,
-						height: 50,
-						backgroundColor: "green",
-						borderRadius: 50,
-						textAlign: "center",
-						alignItems: "center",
-						display: "flex",
-						justifyContent: "center",
-					}}
-					onClick={fetchInformation}
-				>
-					{" "}
+			<div className="buttonContainer">
+				<div className="getInfoButton" onClick={fetchInformation}>
 					GET USERS AND POSTS
 				</div>
 			</div>

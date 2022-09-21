@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import RightArrow from "../../assets/images/RIGHT_ARROW.png";
 import DownArrow from "../../assets/images/DOWN_ARROW.png";
+import "./User.css";
 
 const User = ({
 	name,
@@ -25,17 +26,7 @@ const User = ({
 
 	return (
 		<>
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "row",
-					justifyContent: "center",
-					alignContent: "flex-end",
-					margin: "auto",
-					width: "75%",
-					border: "1px solid black",
-				}}
-			>
+			<div className="userContainer">
 				<div onClick={changeVisibility} style={{ marginRight: 20 }}>
 					{userExpanded ? (
 						<img
@@ -58,22 +49,15 @@ const User = ({
 				{userExpanded ? (
 					<div>
 						<div>
-							<div style={{ marginBottom: 5 }}>Name: {name}</div>
-							<div style={{ marginBottom: 5 }}>Username: {username}</div>
-							<div style={{ marginBottom: 5 }}>Email: {email}</div>
-							<div style={{ marginBottom: 5 }}>Address: {address}</div>
-							<div style={{ marginBottom: 5 }}>Phone: {phone}</div>
-							<div style={{ marginBottom: 5 }}>Website: {website}</div>
-							<div style={{ marginBottom: 5 }}>Company: {company}</div>
+							<div className="userInfoRow">Name: {name}</div>
+							<div className="userInfoRow">Username: {username}</div>
+							<div className="userInfoRow">Email: {email}</div>
+							<div className="userInfoRow">Address: {address}</div>
+							<div className="userInfoRow">Phone: {phone}</div>
+							<div className="userInfoRow">Website: {website}</div>
+							<div className="userInfoRow">Company: {company}</div>
 						</div>
-						<div
-							style={{
-								display: "flex",
-								flexDirection: "row",
-								justifyContent: "center",
-								marginTop: 5,
-							}}
-						>
+						<div className="userPostsContainer">
 							<div onClick={changePostVisibility} style={{ marginRight: 20 }}>
 								{postsExpanded ? (
 									<img src={RightArrow} width={10} height={10} alt="expand" />
@@ -84,15 +68,9 @@ const User = ({
 							{postsExpanded ? (
 								posts.map((post, key) => {
 									return (
-										<div
-											style={{
-												display: "flex",
-												flexDirection: "column",
-												marginTop: 15,
-											}}
-										>
-											<div style={{ fontSize: 12 }}>Title : {post.title}</div>;
-											<div style={{ fontSize: 10 }}>Body : {post.body}</div>;
+										<div className="postInfoRow">
+											<div className="postTitle">Title : {post.title}</div>;
+											<div className="postBody">Body : {post.body}</div>;
 										</div>
 									);
 								})
@@ -106,8 +84,6 @@ const User = ({
 						Name: {name}
 					</div>
 				)}
-
-				<div style={{ height: 1, backgroundColor: "red", marginTop: 10 }} />
 			</div>
 		</>
 	);

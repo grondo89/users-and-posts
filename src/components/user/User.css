@@ -1,0 +1,34 @@
+.userContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-content: flex-end;
+	margin: auto;
+	width: 75%;
+	border: 1px solid black;
+}
+
+.userInfoRow {
+	margin-bottom: 5px;
+}
+
+.userPostsContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: 5px;
+}
+
+.postInfoRow {
+	display: flex;
+	flex-direction: column;
+	margin-top: 15px;
+}
+
+.postTitle {
+	font-size: 12px;
+}
+
+.postBody {
+	font-size: 10px;
+}
