@@ -11,26 +11,23 @@ export const getUsersAndPosts = async () => {
 			await axios.get(`https://jsonplaceholder.typicode.com/posts`)
 		).data;
 
-		const usersWithPosts = [];
-
-		for (let i = 0; i < userRawData.length; i++) {
-			const userData = userRawData[i];
-			const { address } = userData;
+		const usersWithPosts = userRawData.map((user, i) => {
+			const { address } = user;
 
 			const filteredPosts = remove(postsRawData, {
-				userId: Number(userData.id),
+				userId: Number(user.id),
 			});
 
-			const joinedUserPostData = {
-				...userData,
+			return {
+				...user,
 				posts: filteredPosts,
-				company: userData.company.name,
+				company: user.company.name,
 				address: address.street
 					.concat(" ", address.suite)
 					.concat(" ", address.city),
 			};
-			usersWithPosts.push(joinedUserPostData);
-		}
+		});
+
 		return usersWithPosts;
 	} catch (error) {
 		return {
