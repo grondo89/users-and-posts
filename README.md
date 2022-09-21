@@ -1,4 +1,4 @@
-# Users and Post App
+# Users and Posts App
 
 Small App which consumes the jsonplaceholder API in order to display user info and posts together.
 
