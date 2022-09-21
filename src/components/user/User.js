@@ -23,7 +23,6 @@ const User = ({
 		setPostsExpanded(!postsExpanded);
 	};
 
-	console.log(posts);
 	return (
 		<>
 			<div
